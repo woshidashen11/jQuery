@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//$('#box').click(function(){}).mouseenter(function());
+			
+
+
+			$(function(){
+//				$('#box').on('click',function(){
+//					console.log('dianji')
+//				}).on('mouseenter',function(){
+//					console.log('鼠标移入');
+//				}).on('click',function(){
+//					console.log('点击');
+//				})
+//				$('#box').off('mouseenter');
+//				
+				//命名空间
+//				$('#box').off('click');
+				
+				$('#box').on('click.y',function(){
+					console.log('dianji')
+				}).on('mouseenter',function(){
+					console.log('鼠标移入');
+				}).on('click.z',function(){
+					console.log('点击');
+				})
+				
+				$('#box').off('click.z');
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

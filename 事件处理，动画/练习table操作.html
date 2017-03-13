@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js"></script>
+		<script>
+			//代码从这里开始写
+			$(function(){
+				
+				//添加删除事件
+				
+				//onclick
+				$('a').click(function(){
+				//	$(this)  //发生事件的对象   //js 对象
+					//$(this).parent()   //td
+					$(this).parent().parent().remove()  //tr
+					
+				});
+				
+				
+//				document.getElementById("a1").onclick =function(){
+//					this
+//				}
+				
+//				function deleteTr(){
+//					this
+//				}
+	
+	
+				$('#save').click(function(){
+					//		$('#uid').val()
+					
+					var $Tr = $('<tr/>');
+					
+					var $td1 = $('<td/>').html($('#uid').val());
+					
+					var $td2 = $('<td/>').html($('#name').val());
+					
+					var $td3 = $('<td/>').html($('#phone').val());
+					
+					var $td4 = $('<td/>').html('<a href=#>删除<a/>');
+					
+					//添加元素
+					$Tr.append($td1).append($td2).append($td3).append($td4).appendTo($('tbody'));
+					
+					
+					//错误  事件重复绑定
+//					$('a').click(function(){
+//					//	$(this)  //发生事件的对象   //js 对象
+//						//$(this).parent()   //td
+//					//	$(this).parent().parent().remove()  //tr
+//					
+//					
+//						console.log('a标签被点击了');
+//					});
+
+					//如何给新添加的a标签单独绑定事件
+					$td4.find('a').click(function(){
+						
+//						console.log('a标签被点击了');
+						$(this).parent().parent().remove()
+					})
+				})
+								
+			})
+			
+		</script>
+	</head>
+	<body>
+		ID <input type="text" id="uid"/>
+		姓名<input type="text" id="name"/>
+		电话<input type="text" id="phone"/>
+		<input id="save" type="button" value="保存" />
+		
+		<table border="1" id="tab">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Tel</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>30</td>
+				<td>张三</td>
+				<td>13554354534</td>
+				<td><a href="#" >删除</a></td>
+			</tr>
+			<tr>
+				<td>40</td>
+				<td>李四</td>
+				<td>1355443434</td>
+				<td><a href="#">删除</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			
+			//hide()  show()
+			
+			$(function(){
+				//$('#box').hide(1000);
+				
+				$('button').click(function(){
+						//	$('#box').hide(1000);
+					//toggle   切换显示和隐藏
+					//show  hide  toggle  显示隐藏  以左上角为基准
+					//$('#box').toggle('normal');  //slow  fast normal
+					
+					//fadeIn  fadeOut   //透明度
+					//$('#box').fadeOut(1000)
+					
+				//	$('#box').fadeToggle(1000);
+					//从当前的透明度过度到目标值
+//					$('#box').fadeTo(1000,0.5,function(){
+//						console.log('结束动画')
+//					});
+					//slide  //上拉和下拉隐藏
+					//$('#box').slideUp(1000);
+					
+					$('#box').slideToggle(1000);
+					
+					//swing    缓冲运动
+					//liner    匀速运动  也可以作为速度的状态值
+					
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>	
+		
+		<button>开始动画</button>
+	</body>
+</html>

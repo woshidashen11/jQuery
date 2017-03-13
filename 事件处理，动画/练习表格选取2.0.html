@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.datalist{border:1px solid #ccc;border-collapse:collapse;width:100%;}
+		.datalist thead tr{background-color:#dfdfdf;}
+		td,th{border:1px solid #ccc;padding:5px 10px;}
+		.odd{background-color:#efefef;}
+		.selected{background-color: #fc0;color:#fff;}
+	</style>
+	<script src="js/jquery-1.12.3.js"></script>
+	<script>
+		$(function(){
+			/*
+				思路：
+				1、全选/不选
+				2、反选
+				3、点击任意地方选取
+				4、查找选取
+				5、全选状态修改
+			 */
+			
+			
+			//预处理
+			$all = $('#all');
+			
+			$checkbox = $(':checkbox').not('#all');
+			
+			$tr = $('.datalist tbody tr');
+			
+			
+			$findBox = $('#username');
+			
+			$findBtn =  $('#username').next();
+			
+			$fanBtn = $('#btnFx');
+			
+			//1全选 all
+			//1.1 第一要把所有的checkbox勾选上  
+			//1.2 所以的tr改变背景色
+			$all.click(function(){
+			//	$all   $(this).prop('checked');
+			
+				//$checkbox.prop('checked',$(this).prop('checked'));
+				
+				//this 表示的是checkbox  checkbox本身有一个checked的属性
+				$checkbox.prop('checked',this.checked);
+				
+//				if(this.checked){
+//					$tr.addClass('selected');
+//				}else{
+//					$tr.removeClass('selected');
+//				}
+
+				var mothed = this.checked?'addClass':'removeClass';
+				$tr[mothed]('selected');
+				
+			})
+			
+			
+			//1 改变checkbox的勾选状态
+			//2 通过checkbox的勾选状态去改变 它父节点的tr
+			$fanBtn.click(function(){
+				
+				$checkbox.prop('checked',function(index,ele){
+						//	(this)  //每一个checkbox
+						var mothed = this.checked?'removeClass':'addClass';
+						
+						//错误
+					//	$tr[mothed]('selected');
+					
+					//改变样式的目标为checkbox所在的tr
+					 $(this).closest('tr')[mothed]('selected');
+					return !this.checked;
+				});
+				afterAll()
+			})
+			
+			$tr.click(function(){
+				//首先切换自己的样式
+				$(this).toggleClass('selected');
+				//方向的改变checkbox状态
+				$(this).find(':checkbox').prop('checked',$(this).hasClass('selected'));
+				
+				
+				//点击后要判断 所有的checkbox 是否勾选上
+				//如果是  全选按钮 也要被勾选上
+				//否则 全选按钮 取消勾选
+				afterAll();
+			})
+			//定义afterAll()
+			function afterAll(){
+				
+//				var  bool = 1;
+//				$checkbox.each(function(){
+//					
+//					console.log(this);
+//					bool *=  this.checked
+//				})
+//				if(bool){
+//					$all.prop('checked',true)
+//				}else{
+//					$all.prop('checked',false);
+//				}
+
+				$checkbox.length;
+				
+				$checkbox.filter(":checked").length;
+				
+				$all.prop('checked',$checkbox.length == $checkbox.filter(":checked").length)
+			}
+
+		});
+	</script>
+</head>
+<body>
+	<button>第1行</button>
+	<button>最后1行</button>
+	<button>前3行</button>
+	<button>后3行</button>
+	<button>第4-6行</button>
+	<button>第8行</button>
+	<input type="text" id="username"><button>查找</button>
+	<button id="btnFx">反选</button>
+	<table class="datalist">
+		<thead>
+			<tr>
+				<th width="20"><input type="checkbox" id="all"></th>
+				<th>姓名</th>
+				<th>昵称</th>
+				<th>性别</th>
+				<th>爱好</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>刘备</td>
+				<td>小刘</td>
+				<td>男</td>
+				<td>撩妹，装逼，编草鞋</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>关羽</td>
+				<td>关二</td>
+				<td>男</td>
+				<td>耍大刀，变脸，喝酒</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>张飞</td>
+				<td>张三</td>
+				<td>男</td>
+				<td>打架，喝酒，耍流氓</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>赵云</td>
+				<td>赵四</td>
+				<td>男</td>
+				<td>打架，喝酒，耍帅</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>貂蝉</td>
+				<td>美女</td>
+				<td>女</td>
+				<td>撩汉，化妆</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>小乔</td>
+				<td>乔二</td>
+				<td>女</td>
+				<td>弹琴，唱歌，撩周瑜</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

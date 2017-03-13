@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//	$()   ==$(document).ready()
+		
+		$(function(){
+			var oBox = document.getElementById("box");
+
+			console.log(oBox.innerHTML);
+			
+			//html()   相当于 js的innerHTML
+			
+			//jQuery   基本都是方法  除了长度  length
+			
+			console.log($('#box').length);
+			
+			console.log($('#box').html());
+			
+			//jquery对象和js对象转换
+			
+			//通过jquery找到对象是匹配成功一个数组
+			console.log( $(oBox)  );   //js转成jq对象
+			
+			console.log($(oBox)[0] );
+
+			// jq的一些简单操作
+			//html()   innerHTML
+			//	$('div')    //匹配所有的div  通过标签找对象
+			
+			console.log($('div').length);
+//			$('div').html('hello world');
+			
+			//1 
+//			var aDIV = document.getElementsByTagName('div');
+//			
+//			for(var i=0;i<aDIV.length;i++){
+//				aDIV[i].innerHTML = 'hello world';
+//			}
+			
+			//css()   //修改内联样式  获取样式
+			
+//			$('div').css('background','red');
+			//获取样式
+//			console.log( $('div').css('color') );  //返回的第一个匹配对象
+//			
+//			console.log( $('div').html());
+//		})
+		</script>
+	</head>
+	<body>
+		<div id="box" style="color: yellow;">
+			jjk教xxxx
+			1
+		</div>
+		<div id="">
+			2
+		</div>
+		<div id="">
+			3
+		</div>
+	</body>
+</html>

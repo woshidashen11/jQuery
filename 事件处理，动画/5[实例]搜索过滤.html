@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索过滤效果</title>
+	<style>
+		.namelist{
+			display:none;
+			height:400px;
+			width:200px;
+			padding:5px 10px;border:1px solid #ddd;overflow-y:auto;
+		}
+	</style>
+	<script src="js/jquery-1.12.3.js"></script>
+	<script>
+		$(function(){
+			var name = ['王育崇','周广','陈国荣','胡旭东','陈仁中','古志忠','秦立鑫','廖志勇','田雷','许隋立','郭锡辉','王锐','温智文','吕英华','徐蔚铭','李焯威','陈震','郭梦颖','张龙','尹国君','周志抄','陈家宇','熊丽平','杨冰','周桂浩','梁启鹏','吴超亮','郑永椒','张博文','张浩','夏龙旭','夏粤琳','陈锦','唐增祥','李辉','彭涛','邓东彩','姜浩','杨小明','熊犇','赖金荣','熊江林','程小权','李世华','林煌','王彦翔','张卓','饶家麒','谢进荣','张彩霞','张宇飞','余威龙'];
+
+			//1在namelist添加p 每一个p标签带一个名字
+			//2隐藏p标签
+			
+			//3每一次点击键盘的时候的 获取input的值
+			//4根据input的值显示匹配的p标签;
+			
+			for(var i = 0 ; i<name.length;i++){
+				//name[0]
+				$('<p/>').html(name[i]).appendTo($('.namelist'));
+			}
+			var $keyword = $('#keyword');
+			var $namelist = $('.namelist');
+			$keyword.focus(function(){
+				$namelist.show();
+			}).blur(function(){
+				setTimeout(function(){
+					$namelist.hide();
+				},2000);
+//			}).keyup(function(){
+//				//获取输入框的value
+//				var str = $keyword.val();
+//				$('p').hide().filter(':contains('+str+')').show();
+//			})
+//			
+//			$('p').click(function(){
+//				$keyword.val( $(this).html() );
+//			})
+            }).keyup(function(){
+            	var str = $keyword.val();
+            	$('p').hide().filter(':contains('+str+')').show();
+            })
+            $('p').click(function(){
+            	$keyword.val($(this).html())
+            })
+		});
+	</script>
+</head>
+<body>
+	<h1>搜索过滤</h1>
+	<input type="text" id="keyword">
+	<div class="namelist"></div>
+</body>
+</html>

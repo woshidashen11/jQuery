@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js"></script>
+		<script>
+		// find filter
+		$(function(){
+		var $filter=$('div').filter('.cat')
+		alert($filter.html());
+		});
+		</script>
+	</head>
+	<body>
+		<div class="css">
+			<p class="cat">白猫</p>
+		</div>
+		<div class="cat">
+			<p>黑猫</p>
+		</div>
+	</body>
+</html>

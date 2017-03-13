@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 1000px;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+	
+		<script type="text/javascript">
+			$(function(){
+//				$('#ipt').focus(function(){
+//					console.log("获取到焦点")
+//				});
+//				
+//				$('#ipt').blur(function(){
+//					console.log('失去焦点');
+//				})
+				
+				
+				$('#ipt').change(function(){
+					console.log('文本改变');
+				})
+				
+				//select 
+				
+				$('form').submit(function(){
+					console.log("表单被提交");
+				})
+				
+				//reset  重置表单
+				
+				//resize  scroll
+				
+				//resize 窗口改变的时候触发
+				//scroll  是滑动滚动条的时候进行触发
+				
+//				$(window).scroll(function(){
+//					console.log($(window).scrollTop());
+//				})
+
+//				$(window).resize(function(){
+//					console.log( $(window).width() );
+//				});
+
+				//hover 属于一个组合事件  mouseenter  mouseleave
+				
+				$('#box').hover(function(){
+					console.log('进入');
+				},function(){
+					console.log('移出')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="ipt" value="" />
+		
+		<form>
+			<!--<input type="submit" name="" id="" value="" />-->
+			<button>tiaj</button>
+		</form>
+		
+		<div id="box" style="width: 100px;height: 200px;background: red;">
+			
+		</div>
+			
+	</body>
+</html>

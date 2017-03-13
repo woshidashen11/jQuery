@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//	$()   =jquery()  调用了jquery的方法
+		
+		$(function(){
+			//回调函数
+			
+			//$(documnet).ready(callback);
+			
+			//$('input').eq(0)
+			
+			//通过属性选择器 匹配节点
+			//必须记住
+			console.log($('input[id]').length)
+			//
+			console.log($('input[type]').length)
+			
+			console.log($('input[id=p2]').length)
+			
+			//模糊查找
+			
+			//匹配以p开头节点
+			console.log($('input[id^=p]').length);
+			//匹配以2结尾的节点
+			console.log($('input[id$=1]').length);
+			//匹配包含p的节点
+			console.log($('input[id*=p]').length);
+			
+			console.log($('input[id*=p][placeholder=你好]').length)
+		})
+		</script>
+	</head>
+	<body>
+		<input type="text" value="元芳" id="p2" />
+		<input type="text" value="你怎么看" id="p1" placeholder="你好"/>
+		<input type="text" value="狄仁杰" placeholder="hello"/>
+	</body>
+</html>

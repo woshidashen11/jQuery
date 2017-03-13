@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//document.getElementById('box').getAttribute()
+				//attr()可以获取和设置属性节点  jq的方法
+				
+//				console.log($('#box').attr('title'));
+				
+//				$('#box').attr('title','box2');
+//				
+//				$('#box').removeAttr('title');
+//				
+//				$('#box').attr('xxx','xxxx');
+				
+				
+				//prop() 设置属性
+				
+				console.log($(':checkbox').prop('checked') );
+				
+				$(':checkbox').prop('checked',true);
+				
+				$(':checkbox').prop('xxxdd',true);
+				
+				console.log($(':checkbox').prop('xxxdd') );
+				
+				
+				//attr  和prop 区别
+				
+				//attr 会显示在标签中   prop不会显示
+				
+				//prop 一般设置都是 bool  一般都是争取对于 checked  和selected
+				
+				
+				//class 类名
+				//addClass()  添加类名
+				
+//				$('#box').addClass('box');   //操作样式是使用
+				
+//				$('#box').removeClass('box');
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box" title="boxt">
+			
+		</div>
+		<input type="checkbox" name="" id="" value="" />
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				$(function(){
+//					//找匹配的第一元素
+//					//:frist
+					$('tr:first').css('color','red');
+//					
+//					//first() 找匹配第一个元素；
+//					$('tr').first().css('color' , 'yellow');
+//					
+//					//匹配最后一个元素
+//					//:last
+//					$('tr:last').css('color','red');
+//					//last()
+//					$('tr').last().css('color','yellow');
+//					
+//					
+//					//eq  通过下标去获取对应的元素   //返回的是jq对象
+//					$('tr').eq(0).css('color','blue');
+//					
+//					//找最后一个
+//				//	$('tr').eq( $('tr').length-1 ).css('color','green');
+//				
+//					//当参数为负数的时候 从后往前取 （-1）表示倒数第一个
+//					$('tr').eq(-1).css('color','green');
+//					
+					//:eq 可以作为伪类来使用
+					
+//					$('tr:eq(0)').css('color','red');
+//					$('tr:eq(-1)').css('color','blue');
+					
+					
+					//以上内容必须记住
+					
+					//匹配奇数行 
+					//奇 偶 是以下标为标准的   第一是 0 偶数
+					
+//					$('tr:odd').css('background','red');
+					
+					//匹配偶数行
+//					$('tr:even').css('background','blue');
+					
+					//大于索引值
+//					$('tr:gt(0,4)').css('background','green');
+//					$('tr:lt(-1)').css('background','yellow');
+					
+					//不包括
+					//:not 伪类不包括
+					//$('tr:not(#dd)').css('background','pink');
+					//not（）；
+//					$('tr').not('#dd').css('background','pink');
+					//如何选择使用伪类还是方法
+					
+					//提倡使用方法 
+					//方法的效率的更高
+ 				})
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<tr><th>指定范围选择器</th><th>描述</th></tr>
+			<tr><td>:first</td><td>匹配找到的第一个元素</td></tr>
+			<tr><td>:last</td><td>匹配找到的最后一个元素</td></tr>
+			<tr id='dd'><td>:even</td><td>匹配所有索引值为偶数的元素</td></tr>
+			<tr><td>:odd</td><td>匹配所有索引值为奇数的元素</td></tr>
+			<tr><td>:gt(index)</td><td>匹配所有索引大于给定索引值的元素</td></tr>
+			<tr id="lt"><td>:lt(index)</td><td>匹配所有索引小于给定索引值的元素</td></tr>
+			<tr class="trNot"><td>:not()</td><td>匹配所有索引小于给定索引值的元素</td></tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*
+			    1, 通过基本选择器获取并打印这首诗的标题
+				2, 将class为pDemo1的p元素的背景颜色设置为黄色
+				3, 将class为pDemo2的p元素的字体颜色设置为红色
+				4, 将class为pDemo的第一个p元素的字体大小设置为25px
+				5, 将所有文字的字体设置为”微软雅黑”
+			 */
+			
+			$(function(){
+				
+				//第一个参数属性名称  第二个参数目标值
+//				$('#title').css('font-size',30);
+//				
+//				$('#title').css({
+//					'font-size':30,
+//					'color': 'red'
+//				}) 
+				//1
+				console.log($('h4').html())
+				//text() 获取或者修改文本
+				
+				console.log($('h4').text());
+				
+				//区别  html 包含内部的标签
+				//     text 不包含标签名称
+				
+				
+				//js    outerhtml
+				//jquery  没有outertext
+				
+				
+				//jquery 里面没有相应的方法
+				console.log(document.getElementById("title").outerHTML );
+				//不需要记  了解
+				console.log(document.getElementById("title").outerText)
+			
+				//2
+				
+				$('.pDemo1').css('color','yellow');
+				
+				
+				
+				//4
+				
+				console.log($('.pDemo').length);
+				//
+				console.log($('.pDemo')[0]);  //js原生对象  
+				
+				//转换成jquery对象
+				console.log( $($('.pDemo')[0]) )  //jq对象
+				
+				
+				//首先获取了 第一个 js原生对象
+				//将原生的对象转换成jq对象
+				//调用jq 的方法
+//				$($('.pDemo')[0]).css('font-size',25);
+				//eq（） 通过下标获取jq对象  返回也是一个jq对象
+				$('.pDemo').eq(0).css('font-size',25);
+				
+				//get（） 获取jq对象的 下标元素
+				
+				console.log($('.pDemo').get(0) );
+				
+				//等同与  通过下标获取
+				//5
+				$('*').css('font-family','微软雅黑');
+				
+				
+				//$  == jQuery
+				
+				//$() ==  jQuery()
+				
+				//$('p')    //选择器
+				
+				//
+				
+				console.log(	$('p') )  //找到的是一个jqeury对象
+			})
+			
+		</script>
+	</head>
+	<body>
+		<h4 id="title"> 论语 </h4>
+		<div id="divDemo">子在川上曰：
+			<p class="pDemo">“逝者如斯夫！</p>
+			<p class="pDemo">不舍昼夜。”</p>
+			<p class="pDemo1">“逝者如斯夫！</p>
+			<p class="pDemo2">不舍昼夜。”</p>
+		</div>
+	</body>
+</html>

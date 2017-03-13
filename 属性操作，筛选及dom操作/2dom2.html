@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button').eq(0).click(function(){
+					//wrap  在匹配节点的外层包上一个节点 
+					$('#wrap p').wrap('<b></b>');
+				})
+				
+				$('button').eq(1).click(function(){
+					
+					//unwrap() 移除外层节点
+					$('#wrap p').unwrap();
+				})
+				
+				$('button').eq('2').click(function(){
+					$('#wrap p,#wrap div').wrapAll('<b></b>');
+				})
+				
+				$('button').eq(3).click(function(){
+					$('#wrap p').wrapInner('<b></b>');
+				})
+				
+				$('button').eq(4).click(function(){
+					//replace  替换节点
+					
+				//	$('#replace .first').replaceWith('<div>replace</div>');
+					//对现有的节点进行操作的时候会改变dom结构
+					
+					//除了replace   append   和prepend  都会改变dom结构
+					$('#replace .first').replaceWith($('#replace .third'));
+				})
+				
+				
+				$('button').eq(7).click(function(){
+					
+//					var $clone = $('button').eq(4).clone();
+//					$clone.insertAfter( $('button').eq(7) );
+					
+					
+				//	$('button').eq(4).clone().insertAfter( $('button').eq(7) );
+				
+				//clone 对象的事件
+				$('button').eq(4).clone(true).insertAfter( $('button').eq(7) );
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button id="btn1">wrap</button>
+		<button id="btn2">unwrap</button>
+		<button id="btn3">wrapAll</button>
+		<button id="btn4">wrapInner</button>
+		
+		<div id="wrap">
+			<p>p1</p>
+			<div></div>
+			<p>p2</p>
+		</div>
+		
+		<hr>
+		<button id="btn5">replace</button>
+		<button id="btn6">empty</button>
+		<button id="btn7">remove</button>
+		<button id="btn8">clone</button>
+		
+		<div id="replace">
+			<div class="first">hello<span>bbbb</span></div>
+			<div class="second">你好</div>
+			<div class="third">goodbye</div>
+		</div>
+	</body>
+</html>

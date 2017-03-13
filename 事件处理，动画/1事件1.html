@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: red;
+				margin-bottom: 10px;
+			}
+			
+			#box{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button').click(function(e){
+					
+					//e  === event
+					
+					//this   发生事件的对象
+					
+					//$(this)  转换成jq对象
+					
+					console.log( $(this).index() );
+					
+				})
+				
+//				$('div').mousedown(function(e){
+//					console.log($(this).index());
+//					console.log(e.button)
+//				});
+				
+//				$('#box').mouseover(function(){
+//					console.log('移入');
+//				});
+
+
+//				$('#box').mouseenter(function(){
+//					console.log('移入');
+//				})
+				
+				//mouseenter  区别  不会冒泡
+				
+				//mosuseout  也会冒泡
+				
+				//mouseleave   区别 不会冒泡
+				
+//				$('#box').mouseleave(function(){
+//					console.log('移出');
+//				});
+				
+				//键盘事件
+				
+				//按下键盘的任意键
+//				$(window).keydown(function(e){
+//					console.log(e.keyCode)
+//				})
+				
+				//按下字符键
+//				$(window).keypress(function(e){
+//					console.log(e.charCode);
+//				});
+				
+//				$('button').click(function(){
+//					console.log('click2');
+//				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		
+		
+		
+		<div >
+			
+		</div>
+		
+		<div >
+			
+		</div>
+		
+		<div >
+			
+		</div>
+		
+		<div >
+			
+		</div>
+		
+		
+		<div id="box">
+			<div>
+				
+			</div>
+		</div>
+
+	</body>
+</html>

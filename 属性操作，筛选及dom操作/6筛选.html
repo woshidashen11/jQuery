@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//第一个li
+			//	$('li').eq(0)    //得到指定元素
+			//	first
+			//$('li').first()
+			
+			//filter()  筛选器方法
+			
+			
+			//has ()
+			
+			//包含的意思选择器  返回结果里面
+//			$('li').has('ul').css('background','yellow');
+			//
+			//hasClass（）   //判断是否有class  
+			//参数为判断的class的名称
+			//返回真和假
+			
+//			console.log($('div').eq(0).hasClass('goodbye') );
+//			
+//			console.log($('div').eq(2).hasClass('goodbye'))
+			
+		//	$('div').filter('.goodbye').css('color','red');
+		
+		
+//			$('div').filter(function(index){
+				//表示遍历的序号
+				
+				//如果返回假的时候 不会包含在结果里面
+				//如果返回真的时候 就出现在结果里面
+				
+				//this //是一个js的对象
+//				return true
+//			}).css('color','blue')
+//		
+//			//not()不包含 从jq对象的数组中删除匹配元素
+//			
+//			$('div').not('.goodbye').css('background','cyan');
+
+
+
+			//slice()   截取一定范围内的对象
+			
+			
+			$('li').slice(2).css('color','red');
+			
+			//参数 前闭后开
+//			$('li').slice(-3,-1).css('color','red');
+			
+			
+			
+			
+			
+			
+			
+				
+			})
+		</script>
+	</head>
+	<body>
+				<!-- filter -->
+		<div>Hello</div>
+		<div>Hello 2</div>
+		<div class="goodbye">Goodbye</div>
+		
+		<div id="filter">
+			<ul>
+				<li>11111</li>
+				<li>22222
+					<ul></ul>
+				</li>
+				<li>33333</li>
+				<li>44444</li>
+			</ul>
+		</div>
+		
+		
+		<!-- is() -->
+		<form>
+			<input type="text" id="is"/>
+		</form>
+		
+		
+		<!-- map() -->
+		<div id="map">
+			<input type="checkbox" value="2"/>
+			<input type="checkbox" value="4"/>
+			<input type="checkbox" value="6"/>
+			<input type="checkbox" value="8"/>
+		</div>
+		<p></p>
+		
+		
+		<!-- not() -->
+		<div id="not">
+			<div>11111</div>
+			<div>22222</div>
+			<div class="not333">33333</div>
+		</div>
+		
+		<!-- slice() -->
+		<!--<div id="slice">
+			<ul>
+				<li>1111111111</li>
+				<li>2222222222</li>
+				<li>3333333333</li>
+				<li>4444444444</li>
+				<li>5555555555</li>
+				<li>6666666666</li>
+			</ul>
+		</div>-->
+	</body>
+</html>

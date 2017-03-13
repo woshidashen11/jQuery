@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="1017/js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//1.x.x   可以兼容低版本当然ie
+			//2.x.x  完全的放弃的了低版本的ie
+			//3.x.x
+			
+			//1使用jqeury
+			
+			//1.1
+			//js操作
+			onload = function(){
+				var oBox = document.getElementById("box");
+				console.log(oBox.innerHTML)
+			}
+			onload = function(){
+				console.log('js windows load');
+			}
+			//jq
+			
+			$(window).load(function(){
+				console.log('jq win load1');
+			});
+			
+			$(window).load(function(){
+				console.log('jq win load2');
+			});
+			
+			//jQuery   ==   $
+			
+			jQuery(window).load(function(){
+				console.log('jq win load3');
+			});
+			
+			//最简操作
+			
+			
+			$(function(){
+				console.log('这是第一段jq代码');
+			})
+			
+			//等价于
+			$(document).ready(function(){
+				console.log('这是第2段jq代码');
+				
+			});
+			
+			//ready  和load的区别
+			
+			//ready是当加载完成的时候执行   dom节点加载完成
+			//load 加载完成的时候执行  、、 内容也要加载完成
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			蒋健   qq30723419    jjk
+		</div>
+		<img src="img/1.jpg"/>
+	</body>
+</html>

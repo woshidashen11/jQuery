@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//console.log($('input[type]').length)
+				
+				//属性伪类查找
+				
+//				console.log($('input:text').length)
+				//:input 匹配所以可以输入的框 包含 input   textarea select button
+				console.log($(':input').length)
+				//伪类查找password
+				console.log($('input:password').length)
+				
+
+				
+				//取或者修改值
+				console.log($('input:button').val() );
+				//val 只能够返回和修改 具有value 属性的值
+//				//div 没有value属性 所以下面返回“”
+//				console.log($('#box').val() )
+
+				//明天再议
+//				$(':checkbox').prop("checked",false);
+				console.log($(':checked').length)  //匹配所以被勾选上的 节点
+				
+				console.log($(':radio').length);
+				
+				//html（） 包含内部标签
+				console.log($('#box1').html() )
+				//text（） 只包含文本
+				console.log($('#box1').text() )
+				
+				console.log($('[type=hidden]').length);
+				
+			})
+		</script>
+	</head>
+	<body>
+		<form>
+			
+			<div id="box1">
+				<div id="">
+					我是文本
+				</div>
+			</div>
+			<div id="box" value="Input button"></div>
+			<input type="text" /> <br />
+			<input type="password" /> <br />
+			
+			<input type="checkbox" checked="checked"/>
+			<input type="radio" /> <br />
+			
+			<input type="reset" />
+			<input type="submit" />
+			<input type="button" value="Input button"/>
+			
+			<input type="file" /> <br />
+			
+			<input type="image" src="img/1.jpg"/>
+			
+			<input type="hidden" />
+			
+			<textarea></textarea> <br />
+			
+			<select>
+				<option>呵呵</option>
+				<option selected="selected">ddd</option>
+				<option>嘻嘻</option>
+			</select> <br />
+			
+			<button>按钮</button>
+<!--			<input type="button" name="" id="" value="" />-->
+			
+		</form>
+	</body>
+</html>

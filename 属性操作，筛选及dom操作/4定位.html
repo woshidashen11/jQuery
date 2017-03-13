@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//相对于窗口 offset
+				
+				console.log($('#box2').offset().top )     //返回的是一个对象 top  和 left
+				console.log($('#box2').offset().left) 
+				
+				
+				//相对于父定位的  position
+				
+				console.log($('#box2').position().left)
+				console.log($('#box2').position().top);
+			})
+		</script>
+	</head>
+	<body style="width: 1000px; height: 1000px;">
+		<div id="box1" style="width: 200px; height:200px;  background: yellow; position: absolute; left: 100px; top: 80px;">
+			<div id="box2" style="width: 100px; height: 100px; background: red; position: absolute; left: 30px; top: 30px;"></div>
+		</div>
+	</body>
+</html>

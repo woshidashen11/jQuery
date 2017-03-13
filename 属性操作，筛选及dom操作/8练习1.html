@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.datalist{border:1px solid #ccc;border-collapse:collapse;width:100%;}
+		.datalist thead tr{background-color:#dfdfdf;}
+		td,th{border:1px solid #ccc;padding:5px 10px;}
+		.odd{background-color:#efefef;}
+		.selected{background-color: #fc0;color:#fff;}
+	</style>
+	<script src="js/jquery-1.12.3.js"></script>
+	<script>
+		$(function(){
+			var name = ['王育崇','周广','陈国荣','胡旭东','陈仁中','古志忠','秦立鑫','廖志勇','田雷','许隋立','郭锡辉','王锐','温智文','吕英华','徐蔚铭','李焯威','陈震','郭梦颖','张龙','尹国君','周志抄','陈家宇','熊丽平','杨冰','周桂浩','梁启鹏','吴超亮','郑永椒','张博文','张浩','夏龙旭','夏粤琳','陈锦','唐增祥','李辉','彭涛','邓东彩','姜浩','杨小明','熊犇','赖金荣','熊江林','程小权','李世华','林煌','王彦翔','张卓','饶家麒','谢进荣','张彩霞'];
+
+			// 1生成表格
+			$('tbody').html('');
+			
+			
+			//保存上一次点击按钮的序号
+			var iButton = 0;
+			
+			var shtml = "";
+			for(var i=0 ; i<name.length; i++){
+				//根据数组生成html的字符串
+				if(i%5==0){
+					shtml +='<tr>';
+				}
+				shtml += '<td>'+name[i]+'</td>';
+				
+				if(i%5==4){
+					shtml +='</tr>';
+				}
+			}
+			
+
+			$('tbody').html(shtml);
+			
+//		//	$('button').eq(0)
+//		
+//			$('button').first().click(function(){
+//			//	$('tbody tr').first().addClass('selected');
+//				
+//				//jq toggleClass()切换class  如果有就删除样式 如果没有就添加样式
+//				$('tbody tr').first().toggleClass('selected');
+//				
+//			})
+//			
+//			//:contains    只能够做为伪类 有一个参数  是一个字符串
+//			//筛选包含字符串的元素
+//			
+//			$('tbody td:contains(锐)').addClass('selected');
+
+			$('button').eq(0).click(function(){
+				
+				//参数 是当前点击按钮的序号
+				op(1);
+				$('tbody tr').first().toggleClass('selected');
+				
+			})
+			
+			$('button').eq(1).click(function(){
+				op(2)
+				$('tbody tr').last().toggleClass('selected');
+				
+			})
+			
+			$('button').eq(2).click(function(){
+				op(3)
+				$('tbody tr').slice(0,3).toggleClass('selected');
+				
+			})
+			$('button').eq(3).click(function(){
+				op(4)
+				$('tbody tr').slice(-3).toggleClass('selected');
+				
+			})
+			$('button').eq(4).click(function(){
+				op(5)
+				$('tbody tr').slice(3,6).toggleClass('selected');
+				
+			})
+			
+			$('button').eq(5).click(function(){
+				op(6)
+				$('tbody tr').eq(7).toggleClass('selected');
+				
+			})
+			$('button').eq(6).click(function(){
+				var sValue = $('#username').val();
+				
+				$('tbody td:contains('+sValue +')').addClass('selected');
+				
+			})
+			
+			
+			//判断点击是否是同一个按钮  
+			//如果点击的是同一个按钮的时候 切换class
+			//不是同一个按钮的时候  清除所有的selected
+			
+			//i  当前点击的按钮序号
+			function op(i){
+				
+				// 当前按钮的序号 和 原来点击按钮进行比较
+				//当i  ！=  iButton  表示点击的不是同一个按钮
+				if(i != iButton){
+					//如果是是则移除所有的样式
+					$('tbody tr').removeClass('selected');
+					iButton = i;
+				}
+			}
+			
+
+		});
+	</script>
+</head>
+<body>
+	<button>第1行</button>
+	<button>最后1行</button>
+	<button>前3行</button>
+	<button>后3行</button>
+	<button>第4-6行</button>
+	<button>第8行</button>
+	<input type="text" id="username"><button>查找</button>
+	<table class="datalist">
+		<thead>
+			<tr>
+				<th>表头1</th>
+				<th>表头2</th>
+				<th>表头3</th>
+				<th>表头4</th>
+				<th>表头5</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+			<tr>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

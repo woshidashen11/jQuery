@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				width: 100px;
+				height: 10px;
+				background: red;
+				margin-bottom: 10px;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//css( ) 设置内联样式
+				
+//				$('#box').css('width',100);
+//				
+//				$('#box').css('height',100);
+//				
+//				$('#box').css('background','red');
+
+				//链式操作
+//				$('#box').css('width',100).css('height',100).css('background','red');
+				
+				//参数为对象
+				$('#box').css({
+					'width':100,
+					'height':100,
+					'background':'red'
+				});
+				
+				$('#box').css({
+					'width':200,
+					'height':200,
+					'color':'cyan'
+				})
+
+				//参数是一function
+				//作为了解
+//				$('#list li').css('width',function(index,oldValue){
+//					console.log(index);
+//					console.log(oldValue);
+//					return  index*10 + parseInt(oldValue)
+//				});
+				//更复杂的
+				
+//				$('#list li').css({
+//					'width':function(index,oldValue){
+//							console.log(index);
+//							console.log(oldValue);
+//							return  index*10 + parseInt(oldValue)
+//					},
+//					'height':function(index,oldValue){
+//							console.log(index);
+//							console.log(oldValue);
+//							return  index*10 + parseInt(oldValue)
+//					}
+//				});
+
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			ggg
+		</div>
+		<ul id="list">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

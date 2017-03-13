@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			$(function(){
+				
+				//参数 是一个fun 点击后的回调
+				$(':submit').click(function(){
+					console.log('提交被点击了');
+//					
+//					$('.msg').html('用户名密码爱好');
+
+					var sInfo = "";
+					//<p>用户名：<span>jjk</span></p></br>
+					
+					//添加用户名
+					sInfo += '<p>' +$('label[for="username"]').text() + '：<span>' + $('#username').val()+ '</span></p>';
+					
+					sInfo += '<p>' +$('label[for="nickname"]').text() + '：<span>' + $('#nickname').val()+ '</span></p>';
+					
+					sInfo += '<p>' +$('label[for="password"]').text() + '：<span>' + $('#password').val()+ '</span></p>';
+					
+					sInfo += '<p>' +$('label[for="passwordchecked"]').text() + '：<span>' + $('#passwordchecked').val()+ '</span></p>';
+					
+					
+					
+					//获取select里面的option
+					
+					sInfo += '<p>' +$('label[for="sex"]').text() + '：<span>' + $('#sex option:checked').text()+ '</span></p>';
+					
+					//获取checkbox 里面被选中的栏目
+					
+					
+					
+					var hob = "";
+					//1获取到被选中的checkbox
+				  	var $checked	=	$(':checkbox:checked')
+					
+//					for(var i=0 ;i<$checked.length;i++){
+//					  		//每一个被选中的checkbox	 $checked[i]
+//					  		
+//					  	//	$checked[i].text()  或者html()  行不通
+//					  	
+//					  //	$checked[i].next()
+//					  //两种思路
+//					  //parent（）
+////					 hob +=  $checked.eq(i).parent().text();
+//
+//					//原生的js的方法
+//					 hob += " " +$checked[i].nextSibling.nodeValue;
+//					}
+
+
+					//第一种遍历的方式  each
+					//fun是遍历的回调函数
+//					$checked.each(function(){
+//						console.log( this );
+//						
+//						//获取到遍历的对象的下一文本节点
+//						hob += " " + this.nextSibling.nodeValue;
+//					})
+					
+					
+					//第二种遍历方式  map（）有返回值
+
+					//jq对象调用方法返回的基本上都是jq对象
+					var obj = $checked.map(function(){
+						 console.log( this );
+						 return this.nextSibling.nodeValue   //返回的是一个字符串
+					})
+					
+					console.log(obj);  //map返回的对象
+					
+					console.log(obj.get()); //通过get获取到的数组
+					
+					//一个包含所有被勾选爱好的字符
+					//用连接符连接数组
+					//参数就是连接符
+					console.log(obj.get().join(','));
+					
+					sInfo += '<p>' +$('label[for="hop"]').text() + '：<span>' + obj.get().join(',')+ '</span></p>';
+					//得到了爱好字符在
+					obj.get().join(',')
+					//
+					console.log( $('label').get(0) );  //通过get获取到的所有元素
+					
+					
+					
+					
+					//添加婚姻
+					
+					//获取婚姻的文本
+
+//					$(':radio:checked').get(0).nextSibling.nodeValue   //获取
+//					sInfo += '<p>' +$('label[for="married"]').text() + '：<span>' + obj.get().join(',')+ '</span></p>';
+//					
+					if($(':radio:checked').length>0){
+						sInfo += '<p>' +$('label[for="married"]').text() + '：<span>' + $(':radio:checked').get(0).nextSibling.nodeValue+ '</span></p>';
+					}else{
+						sInfo += '<p>' +$('label[for="married"]').text() + '：<span></span></p>';
+					}
+					
+					console.log(hob);
+					
+					
+					console.log(sInfo);
+					
+					//获取msg
+					$('div.msg').html(sInfo);
+					
+					return false;
+				})
+				
+
+			})
+			
+		</script>
+	</head>
+	<body>
+		<form>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名">
+        </p>
+        <p>
+            <label for="nickname">昵称</label>
+            <input type="text" id="nickname" placeholder="输入一个昵称">
+        </p>
+        <p>
+            <label for="password">密码</label>
+            <input type="password" id="password">
+        </p>
+        <p>
+            <label for="passwordchecked">确认密码</label>
+            <input type="password" id="passwordchecked">
+        </p>
+        <p>
+            <label for="sex">性别</label>
+            <select id="sex">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </p>
+        <p>
+            <label for="hop">爱好</label>
+            <label>
+                <input type="checkbox" value="1">旅游</label>
+            <label>
+                <input type="checkbox" value="2">睡觉</label>
+            <label>
+                <input type="checkbox" value="3">上网</label>
+                <label>
+                <input type="checkbox" value="4">看电影</label>
+        </p>
+        <p>
+            <label for="married">是否已婚</label>
+            <label>
+                <input type="radio" value="1" name="married">是</label>
+            <label>
+                <input type="radio" value="0" name="married">否</label>
+            <label>
+                <input type="radio" value="2" name="married">离异</label>
+        </p>
+        <div class="center">
+            <input type="hidden" value="注册表单">
+            <input type="button" value="返回" />
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+    <div class="msg"></div>
+	</body>
+</html>

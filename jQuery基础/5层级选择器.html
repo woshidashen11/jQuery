@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				
+//				console.log($('input').length  )// 所以的input
+				
+				//匹配 div下的所有的input
+//				console.log($('div input').length);
+				
+				//匹配div下的直接的input
+				
+//				$('div > input').css('background','yellow');
+				
+//				$('#main > input').css('background','red');
+				
+				//找同级
+				
+				//匹配同级的下一个input元素
+//				$('#main + input').css({'background':'green',"font-size":25})
+				//匹配同级的下一个元素
+//				$('#main +').css('background','green');
+//				$('#main + div').css('background','green');   //什么都匹配不到
+				
+				//next()  查找下一个同级元素
+				//是jq的方法  所以返回的是一个jq的对象
+//				$('#main').next('div').css({'color':'red','font-size':25});
+				
+				//匹配同级的所有下级元素
+				
+//				$('#main ~').css('background','black');
+				
+				
+//				$('#main ~input').css('background','black');
+				
+				//$('#main ~')
+//				$('#main').nextAll().css('background','black');
+				
+				//获取同级上一元素
+//				$('#main').prev().css('color','red')
+				
+				
+				//获取所有的同级上层元素
+				
+				//next（） nextAll()  peve（） prevAll() 参数可以是任意的选择器
+//				$('#main').prevAll().css('background','bisque');
+				
+				//siblings()  匹配所有的兄弟节点
+				
+				
+//				$('#main').siblings().css('background','green');
+				
+				//组群选择
+				
+				$('#main,input').css('background','brown');
+				
+				
+				
+//				var oInput = document.getElementsByTagName('input');
+//				oInput[0].style.background = 'black'
+	//			$('input')[0].style.background = "red"
+				
+			})
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<input type="text"  value="1"/> <br />
+		<div>gg
+			<input type="text"  value="2"/><br />
+		</div>
+		<input type="text"  value="3"/><br />
+		<input type="text"  value="4"/>
+		<div id="main">
+			<input type="text"  value="5"/><br />
+			<p>
+				<input type="text"  value="6"/><br />
+			</p>
+		</div>
+		<!--<p>aa</p>-->
+		<input type="text"  value="7"/><br />
+		<div>gg
+			<input type="text"  value="8"/><br />
+		</div>
+		<input type="text"  value="9"/><br />
+	</body>
+</html>

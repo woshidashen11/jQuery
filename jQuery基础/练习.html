@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			$(function(){
+				
+				//参数 是一个fun 点击后的回调
+				$(':submit').click(function(){
+					console.log('提交被点击了');
+					
+					$('.msg').html('用户名密码爱好');
+					return false;
+				})
+				
+//				$('button').click(function(){
+//					console.log('按钮被点击了');
+//				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		<form>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名">
+        </p>
+        <p>
+            <label for="nickname">昵称</label>
+            <input type="text" id="nickname" placeholder="输入一个昵称">
+        </p>
+        <p>
+            <label for="password">密码</label>
+            <input type="password" id="password">
+        </p>
+        <p>
+            <label for="passwordchecked">确认密码</label>
+            <input type="password" id="passwordchecked">
+        </p>
+        <p>
+            <label for="sex">性别</label>
+            <select id="sex">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </p>
+        <p>
+            <label for="">爱好</label>
+            <label>
+                <input type="checkbox" value="1">旅游</label>
+            <label>
+                <input type="checkbox" value="2">睡觉</label>
+            <label>
+                <input type="checkbox" value="3">上网</label>
+                <label>
+                <input type="checkbox" value="4">看电影</label>
+        </p>
+        <p>
+            <label for="">是否已婚</label>
+            <label>
+                <input type="radio" value="1" name="married">是</label>
+            <label>
+                <input type="radio" value="0" name="married">否</label>
+            <label>
+                <input type="radio" value="2" name="married">离异</label>
+        </p>
+        <div class="center">
+            <input type="hidden" value="注册表单">
+            <input type="button" value="返回" />
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+    <div class="msg"></div>
+	</body>
+</html>

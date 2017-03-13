@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//children  //直接查找孩子节点
+				
+//				console.log($('#children').children().length)
+				
+//				$('#children').children('span').css('color','red')
+				
+				//find   在孩子节点中查找查找指定的节点
+				
+//				$('#children').find('span').css('background','blue');
+
+
+				//parent() 直接父亲节点
+				
+				
+				$('#div2').parent().css('color','yellow');
+				//parents（）所有的上级节点
+//				console.log($('#div2').parents().length);
+//				
+//				console.log($('#div2').parents() )
+				
+				//closest()  最近的指定的父亲节点
+				
+				$('#div2').closest("#parent").css('background','red');
+				
+				
+				//nextUntil   到目标节点位置
+				
+				
+//				$('#nextUntil #start').nextUntil('#end').css("color",'pink');
+				
+				
+			})
+		</script>
+	</head>
+	<body>		<!-- childre find -->
+		<div id="children">
+			<p>
+				<span>11111</span>
+			</p>
+			<span>22222</span>
+			<p>333333</p>
+		</div>
+		
+		<!-- closest() -->
+		<div id="closest">
+			<ul style="border: 1px solid red;">
+				<ul>
+					<li>111111</li>
+					<li>222222</li>
+					<li>333333</li>
+				</ul>
+			</ul>
+		</div>
+		
+		
+		<!-- nextUntil() -->
+		<div id="nextUntil">
+			<input type="text" value="111"/>
+			<input type="text" value="222" id="start"/>
+			<input type="text" value="333"/>
+			<input type="text" value="444"/>
+			<input type="text" value="555" id="end"/>
+		</div> 
+		
+		<!-- parent() parents() -->
+		<div id="parent">ddddddd
+			<span>fff
+				<div id="div2">
+					111111
+				</div>
+			</span>
+		</div>
+	</body>
+</html>

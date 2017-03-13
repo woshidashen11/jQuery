@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-bottom: 10px;
+			}
+		</style>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//创建dom
+				// var $div = $('<div></div>');
+				 var $div = $('<div/>');
+				 console.log($div);
+				 //加载在dody
+				 
+				 //append在子节点的后面加载
+//				 $('body').html('<div id=box></div>');
+//				 $('body').append('<div id=box>append</div>');
+//				 $('body').append($div);
+//				 
+//				 //prepend
+//				 $('body').prepend('<div id=box>prepend</div>');
+//               $('body').append($div);
+				//appendTo
+//				$('<div id=box1>appendTo</div>').appendTo('body');
+				
+				//prepend
+				
+//				$('<div id=box2>prependTO</div>').prependTo('body');
+				 
+				 
+				 //after  before
+				 $('#box1').after('<div>after</div>');
+//				 
+//				 
+				 $('#box1').before('<div>before</div>');
+
+				
+//				 $('<div>after</div>').insertAfter($('#box1'));
+				 
+//				 $('<div>before</div>').insertBefore($('#box1'));
+				 //move   移除的是调用的对象
+				 $('#box1').remove();
+				 
+				 //empty()
+				 //清空对象的子节点
+				 $('body').empty();
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+	</body>
+</html>
